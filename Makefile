@@ -1,6 +1,13 @@
-all: client director homecloud mqtt-bridgeify build
+BINARIES=\
+sphere-go-homecloud \
+mqtt-bridgeify \
+sphere-go-homecloud \
+sphere-client \
+sphere-director
 
-build: sphere-config sphere-schemas
+all: build
+
+build: sphere-config sphere-schemas $(BINARIES)
 	docker build -t theojulienne/ninjasphere .
 
 sphere-config:
@@ -9,14 +16,17 @@ sphere-config:
 sphere-schemas:
 	git clone https://github.com/ninjasphere/schemas.git sphere-schemas
 
-client:
+sphere-client:
 	bash build-binary.sh ninjasphere/sphere-client
 
-director:
+sphere-director:
 	bash build-binary.sh ninjasphere/sphere-director
 
-homecloud:
+sphere-go-homecloud:
 	bash build-binary.sh ninjasphere/sphere-go-homecloud
 
 mqtt-bridgeify:
 	bash build-binary.sh ninjablocks/mqtt-bridgeify
+
+clean:
+	rm -rf sphere-config sphere-schemas $(BINARIES)
