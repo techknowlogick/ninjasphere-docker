@@ -1,0 +1,2 @@
+#!/bin/sh
+! test -f /data/sphere-serial.conf || cat /data/sphere-serial.conf

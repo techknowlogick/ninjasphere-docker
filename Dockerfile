@@ -18,6 +18,8 @@ ADD bin-linux-amd64/sphere-go-homecloud /opt/ninjablocks/sphere-go-homecloud/
 # utils
 ADD src/bin /opt/ninjablocks/bin
 ADD bin-linux-amd64/mqtt-bridgeify /opt/ninjablocks/bin/
+ADD utils-bin/sphere-serial /opt/ninjablocks/bin/
+ADD utils-bin/sphere-version /opt/ninjablocks/bin/
 
 ADD sphere-config/config /opt/ninjablocks/config
 ADD sphere-schemas /opt/ninjablocks/sphere-schemas
