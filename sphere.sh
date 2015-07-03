@@ -43,7 +43,7 @@ interact() {
 }
 
 logs() {
-	docker $@ ninjasphere
+	docker "$@" ninjasphere
 }
 
 run-driver() {
@@ -61,7 +61,7 @@ run-driver() {
 		MQTT_HOST=$(boot2docker ip 2>/dev/null)
 	fi
 
-	$@ --mqtt.host=$MQTT_HOST --mqtt.port=1883
+	"$@" --mqtt.host=$MQTT_HOST --mqtt.port=1883
 }
 
 case "$1" in
@@ -78,10 +78,12 @@ case "$1" in
 		interact
 		;;
 	logs)
+		shift 1
 		logs $@
 		;;
 	run-driver)
-		run-driver $2
+		shift 1
+		run-driver "$@"
 		;;
 	*)
 		echo "Usage: $0 start [serial]  -- start the sphere stack, serial must be specified the first time"
