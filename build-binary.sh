@@ -17,7 +17,7 @@ for PLATFORM in $PLATFORMS; do
 	export GOARCH=${PLATFORM#*/}
 
 	pushd $DIR
-	./scripts/build.sh
+	test -f ./scripts/build.sh && ./scripts/build.sh
 	popd
 	mkdir -p bin-$GOOS-$GOARCH
 	cp $DIR/bin/* bin-$GOOS-$GOARCH/
