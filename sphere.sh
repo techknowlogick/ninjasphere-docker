@@ -23,7 +23,7 @@ start() {
 		-v $(pwd)/volume-data:/data \
 		--env NINJA_SERIAL=$NINJA_SERIAL \
 		--name=ninjasphere \
-		-p 1883:1883 -p 8000:8000 \
+		-p 1883:1883 -p 8000:8000 -p 80:9080 -p 9001:9001 \
 		theojulienne/ninjasphere
 
 	echo 'Sphere service launched.'

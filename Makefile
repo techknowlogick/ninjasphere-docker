@@ -3,7 +3,8 @@ sphere-go-homecloud \
 mqtt-bridgeify \
 sphere-go-homecloud \
 sphere-client \
-sphere-director
+sphere-director \
+sphere-ui
 
 all: build
 
@@ -27,6 +28,12 @@ sphere-go-homecloud:
 
 mqtt-bridgeify:
 	bash build-binary.sh ninjablocks/mqtt-bridgeify
+
+mqtt-bridgeify:
+	bash build-binary.sh ninjablocks/mqtt-bridgeify
+
+sphere-ui:
+	bash build-binary.sh ninjasphere/sphere-ui
 
 clean:
 	rm -rf sphere-config sphere-schemas $(BINARIES)

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+sv start /home/ninja/service/mqtt-bridgeify || exit 1
+cd /opt/ninjablocks/sphere-ui
+exec /opt/ninjablocks/sphere-ui/sphere-ui --sphere-ui.port 9080

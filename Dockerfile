@@ -15,6 +15,10 @@ ADD bin-linux-amd64/sphere-client /opt/ninjablocks/sphere-client/
 ADD sphere-go-homecloud/ninjapack/root/opt/ninjablocks/sphere-go-homecloud /opt/ninjablocks/sphere-go-homecloud
 ADD bin-linux-amd64/sphere-go-homecloud /opt/ninjablocks/sphere-go-homecloud/
 
+# sphere-ui
+ADD sphere-ui/public /opt/ninjablocks/sphere-ui/public/
+ADD bin-linux-amd64/sphere-ui /opt/ninjablocks/sphere-ui/
+
 # utils
 ADD src/bin /opt/ninjablocks/bin
 ADD bin-linux-amd64/mqtt-bridgeify /opt/ninjablocks/bin/
