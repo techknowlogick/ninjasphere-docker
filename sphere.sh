@@ -78,8 +78,7 @@ case "$1" in
 		interact
 		;;
 	logs)
-		shift 1
-		logs $@
+		logs "$@"
 		;;
 	run-driver)
 		shift 1
