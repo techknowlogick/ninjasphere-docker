@@ -1,3 +1,4 @@
+IMAGE=ninjasphere/ninjasphere
 BINARIES=\
 sphere-go-homecloud \
 mqtt-bridgeify \
@@ -9,7 +10,7 @@ sphere-ui
 all: build
 
 build: sphere-config sphere-schemas $(BINARIES)
-	docker build -t theojulienne/ninjasphere .
+	docker build -t $(IMAGE) .
 
 sphere-config:
 	git clone https://github.com/ninjasphere/sphere-config.git
