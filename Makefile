@@ -29,9 +29,6 @@ sphere-go-homecloud:
 mqtt-bridgeify:
 	bash build-binary.sh ninjablocks/mqtt-bridgeify
 
-mqtt-bridgeify:
-	bash build-binary.sh ninjablocks/mqtt-bridgeify
-
 sphere-ui:
 	bash build-binary.sh ninjasphere/sphere-ui
 
