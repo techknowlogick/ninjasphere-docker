@@ -25,6 +25,7 @@ start() {
 		--env NINJA_SERIAL=$NINJA_SERIAL \
 		--name=ninjasphere \
 		-p 1883:1883 -p 8000:8000 -p 80:9080 -p 9001:9001 \
+		${NINJA_EXTRA_RUN_ARGS} \
 		${IMAGE}
 
 	echo 'Sphere service launched.'
