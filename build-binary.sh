@@ -7,7 +7,7 @@ if [ ! -d $DIR ]; then
 fi
 
 pushd $DIR
-git pull
+test -n "$NO_PULL" || git pull
 popd
 
 PLATFORMS="linux/amd64"
