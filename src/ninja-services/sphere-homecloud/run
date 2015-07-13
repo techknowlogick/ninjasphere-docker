@@ -4,4 +4,4 @@
 sv start /home/ninja/service/sphere-client || exit 1
 
 cd /opt/ninjablocks/sphere-go-homecloud
-exec /opt/ninjablocks/sphere-go-homecloud/sphere-go-homecloud
+exec /opt/ninjablocks/sphere-go-homecloud/sphere-go-homecloud ${NINJA_HOMECLOUD_ARGS}
