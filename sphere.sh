@@ -12,6 +12,7 @@ die() {
 }
 
 start() {
+
 	if [[ $NINJA_SERIAL == "" ]]; then
 		if [ -f volume-data/sphere-serial.conf ]; then
 			NINJA_SERIAL=$(cat volume-data/sphere-serial.conf)
@@ -19,19 +20,19 @@ start() {
 	fi
 
 	if [[ $NINJA_SERIAL == "" ]]; then
-		echo "Serial number must be specified the first time: $0 start <serial>"
+		echo "Serial number must be specified the first time: $0 init <serial>"
 		exit 1
 	fi
 
 	mkdir -p volume-data
-	echo -n "$NINJA_SERIAL" > volume-data/sphere-serial.conf
+	init "$NINJA_SERIAL"
 
 	docker run -d -it \
 		-v $(pwd)/volume-data:/data \
 		--env NINJA_SERIAL=$NINJA_SERIAL \
 		--name=ninjasphere \
 		-p 1883:1883 -p 8000:8000 -p 80:9080 -p 9001:9001 \
-		${NINJA_EXTRA_RUN_ARGS} \
+		"$@" \
 		${IMAGE}
 
 	echo 'Sphere service launched.'
@@ -86,7 +87,8 @@ serial() {
 
 case "$1" in
 	start)
-		start
+		shift 1
+		start "$@"
 		;;
 	stop)
 		stop
@@ -116,7 +118,7 @@ case "$1" in
 		echo "$VERSION"
 		;;
 	*)
-		echo "Usage: $0 start [serial]  -- start the sphere stack, serial must be specified the first time"
+		echo "Usage: $0 start [arg...]  -- start the sphere stack, init must have been run"
 		echo "       $0 init [serial]   -- initialize the serial number for the docker-ised sphere"
 	    echo "       $0 stop            -- stop the sphere stack"
 	    echo "       $0 ps              -- 'ps aux' inside the container"
