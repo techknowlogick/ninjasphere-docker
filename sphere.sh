@@ -1,5 +1,6 @@
 #!/bin/bash
 
+VERSION=1.1
 IMAGE=${IMAGE:-ninjasphere/ninjasphere}
 NINJA_SERIAL=$2
 
@@ -91,12 +92,16 @@ case "$1" in
 		shift 1
 		run-driver "$@"
 		;;
+	version)
+		echo "$VERSION"
+		;;
 	*)
 		echo "Usage: $0 start [serial]  -- start the sphere stack, serial must be specified the first time"
 	    echo "       $0 stop            -- stop the sphere stack"
 	    echo "       $0 ps              -- 'ps aux' inside the container"
 	    echo "       $0 shell           -- 'bash' inside the container"
 	    echo "       $0 logs [-f]       -- show (or follow) the logs"
+	    echo "       $0 version         -- the version number of the sphere.sh script"
 	    exit 1
 esac
 
