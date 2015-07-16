@@ -5,6 +5,11 @@ NINJA_SERIAL=$2
 
 SCRIPT_PATH=$(cd $(dirname $0); pwd)
 
+die() {
+	echo "$*" 1>&2
+	exit 1
+}
+
 start() {
 	if [[ $NINJA_SERIAL == "" ]]; then
 		if [ -f volume-data/sphere-serial.conf ]; then
