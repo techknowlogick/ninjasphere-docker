@@ -72,6 +72,14 @@ run-driver() {
 	"$@" --mqtt.host=$MQTT_HOST --mqtt.port=1883
 }
 
+init() {
+	serial=${1:-$(sphere-go-serial)}
+	test -n "$serial" || die "init: must specify a serial number"
+	mkdir -p volume-data
+	echo -n "$serial" > volume-data/sphere-serial.conf
+	echo "NINJA_SERIAL=$serial;" > volume-data/sphere-serial.env
+}
+
 serial() {
 	test -f volume-data/sphere-serial.conf && echo $(cat volume-data/sphere-serial.conf) || die "not initialized"
 }
@@ -82,6 +90,10 @@ case "$1" in
 		;;
 	stop)
 		stop
+		;;
+	init)
+		shift 1
+		init "$@"
 		;;
 	ps)
 		ps
@@ -105,6 +117,7 @@ case "$1" in
 		;;
 	*)
 		echo "Usage: $0 start [serial]  -- start the sphere stack, serial must be specified the first time"
+		echo "       $0 init [serial]   -- initialize the serial number for the docker-ised sphere"
 	    echo "       $0 stop            -- stop the sphere stack"
 	    echo "       $0 ps              -- 'ps aux' inside the container"
 	    echo "       $0 shell           -- 'bash' inside the container"
