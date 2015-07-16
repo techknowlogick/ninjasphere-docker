@@ -72,6 +72,10 @@ run-driver() {
 	"$@" --mqtt.host=$MQTT_HOST --mqtt.port=1883
 }
 
+serial() {
+	test -f volume-data/sphere-serial.conf && echo $(cat volume-data/sphere-serial.conf) || die "not initialized"
+}
+
 case "$1" in
 	start)
 		start
@@ -92,6 +96,10 @@ case "$1" in
 		shift 1
 		run-driver "$@"
 		;;
+	serial)
+		shift 1
+		serial "$@"
+		;;
 	version)
 		echo "$VERSION"
 		;;
@@ -100,6 +108,7 @@ case "$1" in
 	    echo "       $0 stop            -- stop the sphere stack"
 	    echo "       $0 ps              -- 'ps aux' inside the container"
 	    echo "       $0 shell           -- 'bash' inside the container"
+	    echo "       $0 serial          -- the serial number of the docker-used sphere"
 	    echo "       $0 logs [-f]       -- show (or follow) the logs"
 	    echo "       $0 version         -- the version number of the sphere.sh script"
 	    exit 1
