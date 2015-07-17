@@ -64,10 +64,10 @@ run-driver() {
 		exit 1
 	fi
 
-	MQTT_HOST=127.0.0.1
-
-	if which boot2docker >/dev/null; then
+	if test -z "$MQTT_HOST" && which boot2docker >/dev/null; then
 		MQTT_HOST=$(boot2docker ip 2>/dev/null)
+	else
+		MQTT_HOST=${MQTT_HOST:-127.0.0.1}
 	fi
 
 	"$@" --mqtt.host=$MQTT_HOST --mqtt.port=1883
