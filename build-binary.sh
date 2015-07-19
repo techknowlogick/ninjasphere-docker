@@ -3,7 +3,7 @@ REPO=$1
 DIR=$(basename $REPO)
 
 if [ ! -d $DIR ]; then
-	git clone git@github.com:${REPO}.git $DIR
+	git clone https://github.com:${REPO}.git $DIR
 fi
 
 pushd $DIR
