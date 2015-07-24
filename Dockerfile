@@ -47,5 +47,6 @@ ENV NINJA_BOARD_TYPE="sphere"
 ENV NINJA_OS_TAG="norelease"
 ENV NINJA_OS_BUILD_TARGET="sphere-docker-hacking"
 ENV NINJA_OS_BUILD_NAME="ubuntu_docker_trusty_norelease_sphere-hacking"
+ENV NINJA_SPHERE_CLIENT_OPTS="--cloud-production"
 
 EXPOSE 1883 8000
