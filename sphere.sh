@@ -2,7 +2,6 @@
 
 VERSION=1.1
 IMAGE=${IMAGE:-ninjasphere/ninjasphere}
-NINJA_SERIAL=$2
 
 SCRIPT_PATH=$(cd $(dirname $0); pwd)
 
