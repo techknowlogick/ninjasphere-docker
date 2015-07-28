@@ -86,11 +86,26 @@ The following components are included:
 * schemas - provides the JSON schema repository
 * sphere-config - provides configuration defaults
 
+## Running With An Alternate Cloud
+
+As of version 1.2, it is now possible to connect the docker-ised sphere with an alternate cloud.
+
+```
+./sphere.sh with alternate-cloud example.com 192.168.99.100 start
+```
+
+where example.com is the name of the alternate cloud and 192.168.99.100 is the IP address of machine
+running the alternate cloud. See https://github.com/ninjasphere/sphere-stack for more information
+about setting up an alternate cloud.
+
 ## Missing Services & Errata
 
  * Drivers are not included, and homecloud will mutter a bit about them being restarted
 
 ## Revisions
+
+###1.2
+* Add 'with alternate-cloud {domain} {ip}' to connect sphere to an alternate cloud with the specified domain and ip address.
 
 ###1.1
 * Change to 'start' command.
