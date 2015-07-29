@@ -1,9 +1,9 @@
 IMAGE=ninjasphere/ninjasphere
-SPHERE_CLIENT_BIN=sphere-client/bin-linux-amd64/sphere-client
-SPHERE_DIRECTOR_BIN=sphere-director/bin-linux-amd64/sphere-director
-SPHERE_HOMECLOUD_BIN=sphere-go-homecloud/bin-linux-amd64/sphere-go-homecloud
-MQTT_BRIDGEIFY_BIN=mqtt-bridgeify/bin-linux-amd64/mqtt-bridgeify
-SPHERE_UI_BIN=sphere-ui/bin-linux-amd64/sphere-ui
+SPHERE_CLIENT_BIN=bin-linux-amd64/sphere-client
+SPHERE_DIRECTOR_BIN=bin-linux-amd64/sphere-director
+SPHERE_HOMECLOUD_BIN=bin-linux-amd64/sphere-go-homecloud
+MQTT_BRIDGEIFY_BIN=bin-linux-amd64/mqtt-bridgeify
+SPHERE_UI_BIN=bin-linux-amd64/sphere-ui
 BINARIES=\
 $(SPHERE_CLIENT_BIN) \
 $(SPHERE_DIRECTOR_BIN) \
