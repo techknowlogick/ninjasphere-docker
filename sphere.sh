@@ -17,7 +17,7 @@ with() {
         test -n "$host" || die "usage: with alternate-cloud {domain} {host} start ..."
         shift 2
 
-        WITH_ARGS="-v ${SCRIPT_PATH}/config/docker.json:/opt/ninjablocks/config/docker.json -e NINJA_SPHERE_CLIENT_OPTS=--docker --add-host apiservice.${domain}:${host} --add-host mqtt.${domain}:${host}"
+        WITH_ARGS="-v ${SCRIPT_PATH}/config/docker.json:/opt/ninjablocks/config/docker.json -e NINJA_SPHERE_CLIENT_OPTS=--docker --add-host api.${domain}:${host} --add-host mqtt.${domain}:${host}"
         test -n "$1" || die "usage: with alternate-cloud 192.168.99.100 start..."
         "$@"
     }
