@@ -104,18 +104,18 @@ about setting up an alternate cloud.
 
 ## Revisions
 
-###1.3
+### 1.3
 * Fixed some problems with the makefile.
 * docker.json is now located in sphere-config project
 * sphere-config/config is now mounted onto /opt/ninjablocks/config in the container
 
-###1.2
+### 1.2
 * Add 'with alternate-cloud {domain} {ip}' to connect sphere to an alternate cloud with the specified domain and ip address.
 
-###1.1
+### 1.1
 * Change to 'start' command.
 * Introduce 'init', 'version' and 'serial' commands.
 * Added support for sphere-ui.
 
-###1.0
+### 1.0
 * Initial version cloned from http://github.com/theojulienne/ninjasphere-docker
