@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=1.2
+VERSION=1.3
 IMAGE=${IMAGE:-ninjasphere/ninjasphere}
 
 SCRIPT_PATH=$(cd $(dirname $0); pwd)
